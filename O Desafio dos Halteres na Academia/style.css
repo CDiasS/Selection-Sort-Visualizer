@@ -1,0 +1,290 @@
+* { 
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+body { 
+    background-color: #0a0a0a; 
+    /* Textura de piso emborrachado de academia */
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 15px 15px;
+    color: #ffffff; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    min-height: 100vh; 
+    margin: 0; 
+    padding: 40px 0; 
+}
+
+.container { 
+    text-align: center; 
+    max-width: 950px; 
+    width: 100%; 
+    padding: 30px; 
+    background: rgba(15, 15, 15, 0.95); 
+    border-radius: 12px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); 
+    border: 1px solid #333; 
+}
+
+h2 {
+    font-family: 'Teko', sans-serif;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f1c40f;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px #000, 4px 4px 10px rgba(241, 196, 15, 0.3);
+}
+
+/* --- PAINEL ESTILO CRONÔMETRO DIGITAL --- */
+.painel-estatisticas { 
+    display: flex; 
+    justify-content: center; 
+    gap: 80px; 
+    background: #000; 
+    padding: 15px 30px; 
+    border-radius: 8px; 
+    margin-bottom: 25px; 
+    border: 2px solid #222; 
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.stat-box { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.stat-label { 
+    font-size: 0.9rem; 
+    color: #7f8c8d; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    font-weight: bold;
+}
+
+.stat-valor { 
+    font-family: 'Teko', sans-serif;
+    font-size: 3rem; 
+    line-height: 1;
+    color: #e74c3c; 
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* --- CONTROLES --- */
+.controles { 
+    margin-bottom: 25px; 
+    display: flex; 
+    gap: 15px; 
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    background: #111; 
+    padding: 15px; 
+    border-radius: 8px; 
+    border: 1px solid #333; 
+}
+
+.controle-velocidade { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    font-size: 0.9rem; 
+    color: #ccc; 
+    font-weight: bold;
+}
+
+.controle-velocidade input { 
+    cursor: pointer; 
+    margin-top: 5px; 
+    accent-color: #f1c40f;
+}
+
+button { 
+    padding: 12px 24px; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 4px; 
+    text-transform: uppercase;
+    transition: all 0.2s; 
+}
+
+#btn-iniciar { background: #2ecc71; color: #000; box-shadow: 0 4px 0 #27ae60; }
+#btn-iniciar:hover { transform: translateY(2px); box-shadow: 0 2px 0 #27ae60; }
+#btn-iniciar:disabled { background: #333; color: #666; box-shadow: none; transform: none; cursor: not-allowed; }
+
+#btn-randomizar { background: #3498db; color: #fff; box-shadow: 0 4px 0 #2980b9; }
+#btn-randomizar:hover { transform: translateY(2px); box-shadow: 0 2px 0 #2980b9; }
+#btn-randomizar:disabled { background: #333; color: #666; box-shadow: none; transform: none; cursor: not-allowed; }
+
+.status { 
+    background: #1a1a1a; 
+    padding: 15px; 
+    border-radius: 6px; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    min-height: 54px; 
+    border-left: 5px solid #f1c40f; 
+    margin-bottom: 30px; 
+    color: #ddd;
+}
+
+/* --- ÁREA DE TREINO (O CHÃO E O SUPORTE) --- */
+.chao-academia { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    gap: 45px; 
+    min-height: 350px; 
+    padding-bottom: 10px; 
+    border-bottom: 12px solid #2c3e50; /* O Suporte base */
+    position: relative;
+}
+
+.chao-academia::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 2%;
+    right: 2%;
+    height: 4px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* --- CONSTRUÇÃO DOS HALTERES (DESIGN METÁLICO) --- */
+.halter-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-end; 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Barra de ferro central */
+.halter { 
+    position: relative; 
+    width: 20px; 
+    background: linear-gradient(to right, #7f8c8d, #bdc3c7, #7f8c8d); 
+    border-radius: 2px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+}
+
+/* Anilhas laterais */
+.halter::before, .halter::after { 
+    content: ''; 
+    position: absolute; 
+    width: 70px; 
+    height: 30px; 
+    background: linear-gradient(to bottom, #2c3e50, #1a252f); 
+    border-radius: 4px; 
+    z-index: 2; 
+    transition: all 0.3s; 
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.1);
+    border: 1px solid #111;
+}
+
+.halter::before { top: -2px; }
+.halter::after { bottom: -2px; }
+
+.halter-peso { 
+    margin-top: 15px; 
+    font-family: 'Teko', sans-serif;
+    font-size: 1.6rem; 
+    color: #ecf0f1; 
+    letter-spacing: 1px;
+}
+
+/* --- ESTADOS DO ALGORITMO (GLOW NEON) --- */
+
+/* Olhando (Laranja Neon) */
+.halter.scanning::before, .halter.scanning::after { 
+    background: linear-gradient(to bottom, #e67e22, #d35400); 
+    box-shadow: 0 0 20px rgba(230, 126, 34, 0.7);
+    border-color: #e67e22;
+}
+.halter-wrapper.scanning { transform: translateY(-30px); }
+
+/* Menor encontrado (Vermelho Alerta) */
+.halter.minimum::before, .halter.minimum::after { 
+    background: linear-gradient(to bottom, #e74c3c, #c0392b); 
+    box-shadow: 0 0 25px rgba(231, 76, 60, 0.9);
+    border-color: #e74c3c;
+}
+
+/* Organizado no Suporte (Verde Concluído) */
+.halter.sorted::before, .halter.sorted::after { 
+    background: linear-gradient(to bottom, #27ae60, #2ecc71); 
+    box-shadow: none;
+}
+.halter.sorted { opacity: 0.8; }
+.halter-wrapper:has(.halter.sorted) { transform: translateY(5px); }
+
+/* --- TERMINAL DO LOG DE EXECUÇÃO --- */
+.historico-container { 
+    margin-top: 40px; 
+    background: #0d0d0d; 
+    border: 1px solid #333; 
+    border-left: 4px solid #f1c40f;
+    border-radius: 4px; 
+    padding: 20px; 
+    text-align: left; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.historico-container h3 { 
+    margin-top: 0; 
+    font-family: 'Teko', sans-serif;
+    font-size: 1.8rem; 
+    border-bottom: 1px solid #333; 
+    padding-bottom: 10px; 
+    color: #ccc; 
+    letter-spacing: 1px;
+}
+
+#historico { 
+    max-height: 280px; 
+    overflow-y: auto; 
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    font-family: Consolas, 'Courier New', monospace; 
+    font-size: 0.95rem; 
+}
+
+/* Scrollbar customizada para o Log */
+#historico::-webkit-scrollbar { width: 8px; }
+#historico::-webkit-scrollbar-track { background: #111; }
+#historico::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+#historico::-webkit-scrollbar-thumb:hover { background: #666; }
+
+#historico li { 
+    padding: 8px 0; 
+    border-bottom: 1px dashed #222; 
+    line-height: 1.4;
+}
+
+#historico li .timestamp { color: #555; margin-right: 12px; }
+#historico li.acao-swap { color: #3498db; font-weight: bold; background: rgba(52, 152, 219, 0.1); padding-left: 10px; border-left: 2px solid #3498db; }
+#historico li.acao-minimo { color: #e74c3c; font-weight: bold; }
+#historico li.acao-sucesso { color: #2ecc71; font-weight: bold; }
+
+
+
+
+
+
+
+
+
+
+/* Importação de fontes robustas para o tema de academia */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Roboto:wght@400;700&display=swap');

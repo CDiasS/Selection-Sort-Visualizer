@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sort - O Desafio dos Halteres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>O Desafio dos Halteres</h2>
+        
+        <div class="painel-estatisticas">
+            <div class="stat-box">
+                <span class="stat-label">Esforço Visual (Olhadas)</span>
+                <span class="stat-valor" id="stat-varreduras">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Esforço Físico (Trocas)</span>
+                <span class="stat-valor" id="stat-trocas">0</span>
+            </div>
+        </div>
+
+        <div class="controles">
+            <button id="btn-iniciar">Iniciar Organização</button>
+            <button id="btn-randomizar">Bagunçar Halteres</button>
+            
+            <div class="controle-velocidade">
+                <label for="velocidade">Velocidade: <span id="valor-velocidade">1.0x</span></label>
+                <input type="range" id="velocidade" min="0.5" max="5.0" step="0.5" value="1.0">
+            </div>
+        </div>
+
+        <p class="status" id="status">Halteres gerados. Pronto para organização.</p>
+        
+        <div class="chao-academia" id="chao-academia">
+            </div>
+
+        <div class="historico-container">
+            <h3>Log do Personal Trainer</h3>
+            <ul id="historico">
+                </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
